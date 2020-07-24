@@ -1,4 +1,4 @@
-class File(object):
+class Yaml(object):
     def __init__(self, environment):
         self.environment = environment.name.lower()
 
