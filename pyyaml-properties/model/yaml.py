@@ -1,11 +1,15 @@
 import yaml, os
 
 class Yaml(object):
-    def __init__(self, environment):
-        self.environment = environment.name.lower()
+    def __init__(self, environment=None):
+        self.environment = environment
+        if environment:
+            self.environment = environment.name.lower()
 
     def name(self):
-        return "application-{}.yaml".format(self.environment)
+        if self.environment:
+            return "application-{}.yaml".format(self.environment)
+        return 'application.yaml'
 
     def absoluteName(self):
         location = os.path.dirname(os.path.abspath(self.name()))
